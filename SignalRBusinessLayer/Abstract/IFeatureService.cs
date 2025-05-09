@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalRDataAccessLayer.Abstract
+namespace SignalRBusinessLayer.Abstract
 {
-    public interface IProduct:IGenericDal<Product>
+    public interface IFeatureService:IGenericService<Feature>
     {
     }
 }

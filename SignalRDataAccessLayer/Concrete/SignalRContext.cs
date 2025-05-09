@@ -1,19 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SignalREntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignalRDataAccessLayer.Concrete
 {
-    public class SignalRContext:DbContext
+    public class SignalRContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-3HV2966;initial Catalog=SignalRDb;integrated Security=true;TrustServerCertificate=True;");
-        }
+        public SignalRContext(DbContextOptions<SignalRContext> options) : base(options) { }
+
         public DbSet<About> Abouts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -24,4 +18,9 @@ namespace SignalRDataAccessLayer.Concrete
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
     }
+
 }
+
+
+
+

@@ -1,4 +1,5 @@
-﻿using SignalRDataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using SignalRDataAccessLayer.Abstract;
 using SignalRDataAccessLayer.Concrete;
 using SignalRDataAccessLayer.Repositories;
 using SignalREntityLayer.Entities;
@@ -10,10 +11,20 @@ using System.Threading.Tasks;
 
 namespace SignalRDataAccessLayer.EntityFrameWork
 {
-    public class EfProductDal : GenericREPO<Product>, IProduct
+    public class EfProductDal : GenericREPO<Product>, IProductDal
     {
+        private readonly SignalRContext _signalRContext;
+
         public EfProductDal(SignalRContext context) : base(context)
         {
+            _signalRContext = context;
+        }
+
+        public List<Product> GetProductsWithCategories()
+        {
+            var values = _signalRContext.Products.Include(x=>x.Category).ToList();
+           
+            return values;
         }
     }
 }

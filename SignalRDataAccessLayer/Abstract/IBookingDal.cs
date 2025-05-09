@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SignalRDataAccessLayer.Abstract
 {
-    internal interface IBookingDal:IGenericDal<Booking>
+    public interface IBookingDal:IGenericDal<Booking>
     {
     }
 }
