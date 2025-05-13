@@ -34,7 +34,7 @@ namespace SignalRApi.Controllers
             return Ok(value);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);
@@ -53,8 +53,18 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult ProductCreate(CreateProductDto createProductDto)
         {
-            var value=_mapper.Map<Product>(createProductDto);
-            _productService.TAdd(value);
+            _productService.TAdd(new Product()
+            {
+                Description = createProductDto.Description,
+                ImageUrl = createProductDto.ImageUrl,
+                Price = createProductDto.Price,
+                ProductName = createProductDto.ProductName,
+                Status = createProductDto.Status,
+                CategoryId = createProductDto.CategoryId,
+            });
+
+            //var value=_mapper.Map<Product>(createProductDto);
+            //_productService.TAdd(value);
             return Ok("Ürün Eklenmiştir");
         }
 

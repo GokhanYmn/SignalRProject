@@ -11,5 +11,6 @@ namespace SignalRDtoLayer.CategoryDto
         
         public string CategoryName { get; set; }
         public bool Status { get; set; }
+
     }
 }
