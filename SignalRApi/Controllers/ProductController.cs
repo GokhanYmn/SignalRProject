@@ -27,7 +27,7 @@ namespace SignalRApi.Controllers
             return Ok(value);
         }
 
-        [HttpGet("GetProduct")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
             var value=_productService.TGetById(id);

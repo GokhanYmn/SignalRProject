@@ -27,14 +27,14 @@ namespace SignalRApi.Controllers
             return Ok(value);
         }
 
-        [HttpGet("GetTestimonial")]
+        [HttpGet("{id}")]
         public IActionResult GetTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);
             return Ok(value);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult TestimonialDelete(int id)
         {
             var value = _testimonialService.TGetById(id);

@@ -73,19 +73,6 @@ namespace SignalRWebUI.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> UpdateProduct(int id)
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var responseMesseage = await client.GetAsync($"https://localhost:7290/api/Product/{id}");
-        //    if (responseMesseage.IsSuccessStatusCode)
-        //    {
-        //        var jsonData = await responseMesseage.Content.ReadAsStringAsync();
-        //        var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
-        //        return View(values);
-        //    }
-        //    return View();
-        //}
         [HttpGet]
 public async Task<IActionResult> UpdateProduct(int id)
 {
@@ -112,21 +99,7 @@ public async Task<IActionResult> UpdateProduct(int id)
     return View();
 }
 
-        //[HttpPost]
-        //public async Task<IActionResult> UpdateProduct(UpdateProductDto dto)
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var jsonData = JsonConvert.SerializeObject(dto);
-        //    StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        //    var responseMessage = await client.PutAsync("https://localhost:7290/api/Product", content);
-
-        //    if (responseMessage.IsSuccessStatusCode)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View();
-        //}
+      
 
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductDto dto)

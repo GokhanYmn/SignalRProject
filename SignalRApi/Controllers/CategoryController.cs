@@ -5,6 +5,7 @@ using SignalRBusinessLayer.Abstract;
 using SignalRDtoLayer.BookingDto;
 using SignalRDtoLayer.CategoryDto;
 using SignalREntityLayer.Entities;
+using System.Text;
 
 namespace SignalRApi.Controllers
 {
@@ -27,6 +28,12 @@ namespace SignalRApi.Controllers
             var values=_categoryService.TGetListAll();
             return Ok(values);
         }
+
+        //[HttpGet]
+        //public IActionResult CreateCategory()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public IActionResult CategoryCreate(CreateCategoryDto createCategoryDto)
