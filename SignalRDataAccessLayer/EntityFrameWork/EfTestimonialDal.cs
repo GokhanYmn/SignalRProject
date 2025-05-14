@@ -12,8 +12,10 @@ namespace SignalRDataAccessLayer.EntityFrameWork
 {
     public class EfTestimonialDal : GenericREPO<Testimonial>, ITestimonialDal
     {
+        private readonly SignalRContext _signalRContext;
         public EfTestimonialDal(SignalRContext context) : base(context)
         {
+            _signalRContext = context;
         }
     }
 }

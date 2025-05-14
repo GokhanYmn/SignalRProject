@@ -22,9 +22,42 @@ namespace SignalRDataAccessLayer.EntityFrameWork
 
         public List<Product> GetProductsWithCategories()
         {
-            var values = _signalRContext.Products.Include(x=>x.Category).ToList();
-           
-            return values;
+            return _signalRContext.Products.Include(x => x.Category).ToList();
+        }
+
+        public decimal HamburgerPriceAvg()
+        {
+            return _signalRContext.Products.Where(x => x.CategoryId == (_signalRContext.Categories.Where(y=>y.CategoryName=="Hamburger").Select(z=>z.CategoryId).FirstOrDefault())).Average(q=>q.Price);
+        }
+
+        public int ProductCount()
+        {
+          return _signalRContext.Products.Count();
+        }
+
+        public int ProductCountByCategoryNameDrink()
+        {
+            return _signalRContext.Products.Where(x=>x.CategoryId==(_signalRContext.Categories.Where(y=>y.CategoryName=="İçecek").Select(z=>z.CategoryId).FirstOrDefault())).Count();
+        }
+
+        public int ProductCountByCategoryNameHamburger()
+        {
+            return _signalRContext.Products.Where(x => x.CategoryId == (_signalRContext.Categories.Where(y => y.CategoryName == "Hamburger").Select(z => z.CategoryId).FirstOrDefault())).Count();
+        }
+
+        public decimal ProductPriceAvg()
+        {
+           return _signalRContext.Products.Average(x => x.Price);
+        }
+
+        public string ProductPriceMax()
+        {
+            return _signalRContext.Products.Where(x => x.Price==(_signalRContext.Products.Max(y=>y.Price))).Select(z=>z.ProductName).FirstOrDefault();
+        }
+
+        public string ProductPriceMin()
+        {
+            return _signalRContext.Products.Where(x => x.Price == (_signalRContext.Products.Min(y => y.Price))).Select(z => z.ProductName).FirstOrDefault();
         }
     }
 }

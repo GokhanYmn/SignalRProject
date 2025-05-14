@@ -22,4 +22,8 @@
     <ProjectReference Include="..\SignalRApi\SignalRApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ToDoList\" />
+  </ItemGroup>
+
 </Project>

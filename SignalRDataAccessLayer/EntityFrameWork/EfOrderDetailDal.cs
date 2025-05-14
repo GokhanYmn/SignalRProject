@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace SignalRDataAccessLayer.EntityFrameWork
 {
-    public class EfFeatureDal : GenericREPO<Feature>, IFeatureDal
+    public class EfOrderDetailDal:GenericREPO<OrderDetail>,IOrderDetailDal
     {
         private readonly SignalRContext _signalRContext;
-        public EfFeatureDal(SignalRContext context) : base(context)
+        public EfOrderDetailDal(SignalRContext context) : base(context)
         {
             _signalRContext = context;
         }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SignalRBusinessLayer.Abstract
 {
-    public interface ICategoryService:IGenericService<Category>
+    public interface IOrderService:IGenericService<Order>
     {
-        public int TCategoryCount();
-        int TActiveCategoryCount();
-        int TPassiveCategoryCount();
+        int TTotalOrderCount();
+        int TActiveOrderCount();
+        decimal TLastOrderPrice();
     }
 }

@@ -28,6 +28,8 @@ builder.Services.AddScoped<IDiscountService, DiscountManager>();
 builder.Services.AddScoped<IFeatureService, FeatureManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<IOrderDetailService, OrderDetailManager>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
 
 // Dal sýnýflarý
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
@@ -38,6 +40,8 @@ builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
 builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
+builder.Services.AddScoped<IOrderDal, EfOrderDal>();
 
 
 // Add controllers

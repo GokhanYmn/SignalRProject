@@ -12,8 +12,10 @@ namespace SignalRDataAccessLayer.EntityFrameWork
 {
     public class EfSocialMediaDal : GenericREPO<SocialMedia>, ISocialMediaDal
     {
+        private readonly SignalRContext _signalRContext;
         public EfSocialMediaDal(SignalRContext context) : base(context)
         {
+            _signalRContext = context;
         }
     }
 }

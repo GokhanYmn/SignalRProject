@@ -12,8 +12,10 @@ namespace SignalRDataAccessLayer.EntityFrameWork
 {
     public class EfDiscountDal : GenericREPO<Discount>, IDiscountDal
     {
+        private readonly SignalRContext _signalRContext;
         public EfDiscountDal(SignalRContext context) : base(context)
         {
+            _signalRContext = context;
         }
     }
 }

@@ -12,9 +12,10 @@ namespace SignalRDataAccessLayer.EntityFrameWork
 {
     public class EfAboutDal : GenericREPO<About>, IAboutDal
     {
+        private readonly SignalRContext _signalRContext;
         public EfAboutDal(SignalRContext context) : base(context)
-        {
-
+        {   
+            _signalRContext = context;
         }
     }
 }
